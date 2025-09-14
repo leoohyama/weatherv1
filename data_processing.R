@@ -1,6 +1,8 @@
 #this script downloads data from openmeteo that is used for the daily dashboard
 require(openmeteo)
 require(lubridate)
+require(here)
+
 
 #get the current date
 date<-Sys.Date( )
