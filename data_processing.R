@@ -37,15 +37,24 @@ response_units = list(
   )
 )
 
-historical_dw<-openmeteo::weather_history(location = c(28.3772, -81.5707),
+historical_dw_hourly<-openmeteo::weather_history(location = c(28.3772, -81.5707),
 start = lastdate,
 end = lastdate,
 hourly =  c("temperature_2m", "precipitation"),
-daily = c("temperature_2m_max", "precipitation_sum"),
 response_units = list(
   temperature_unit = c("fahrenheit"),
   precipitation_unit = "inch"
   )
 )
 
+
+historical_dw_daily<-openmeteo::weather_history(location = c(28.3772, -81.5707),
+                                          start = lastdate,
+                                          end = lastdate,
+                                          daily = c("temperature_2m_max", "precipitation_sum"),
+                                          response_units = list(
+                                            temperature_unit = c("fahrenheit"),
+                                            precipitation_unit = "inch"
+                                          )
+)
 saveRDS(historical_dw, file =here("weather_app","data","historicaldw",paste0("historical_dw",date,".rds")))

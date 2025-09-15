@@ -16,9 +16,14 @@ execute:
   freeze: false
 ---
 
+
+![](data/weatherstripes/disney_2024.png){width=100%}
+
 ```{r}
 require(here)
-here()
+require(ggplot2)
+
+
 get_latest_rds <- function(dir_path, verbose = TRUE, return_name = FALSE) {
   rds_files <- list.files(path = dir_path, pattern = "\\.rds$", full.names = TRUE)
   
