@@ -1,7 +1,6 @@
 ---
 title: "Weather App (Last updated: `r format(Sys.time(), '%B %d, %Y %I:%M %p', tz = 'America/New_York')`)"
 author: "Spam_musubi"
-output-dir: ../docs/
 format:
   html:
     self-contained: true
@@ -36,6 +35,8 @@ get_latest_rds <- function(dir_path, verbose = TRUE, return_name = FALSE) {
     return(readRDS(latest_file))
   }
 }
+
+list.files(here::here("data", "historicaldw"))
 historicaldw <- get_latest_rds(
   here::here("data", "historicaldw")
 )
