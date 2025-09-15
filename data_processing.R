@@ -5,7 +5,7 @@ require(here)
 
 
 #get the current date
-date<-Sys.Date( )
+date<-Sys.Date()
 
 #get the same date but last year
 lastdate <- date %m-% years(1)
@@ -48,3 +48,5 @@ response_units = list(
   precipitation_unit = "inch"
   )
 )
+
+saveRDS(historical_dw, file =here("data","historicaldw",paste0("historical_dw",date,".rds")))
