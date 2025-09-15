@@ -3,7 +3,6 @@ require(openmeteo)
 require(lubridate)
 require(here)
 
-
 #get the current date
 date<-Sys.Date()
 
