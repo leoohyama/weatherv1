@@ -36,9 +36,9 @@ get_latest_rds <- function(dir_path, verbose = TRUE, return_name = FALSE) {
   }
 }
 
-list.files(here::here("data", "historicaldw"))
+list.files(here::here("weather_app","data", "historicaldw"))
 historicaldw <- get_latest_rds(
-  here::here("data", "historicaldw")
+  here::here("weather_app","data", "historicaldw")
 )
 
 print(historicaldw)
