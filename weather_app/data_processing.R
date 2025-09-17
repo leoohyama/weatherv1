@@ -2,7 +2,10 @@
 require(openmeteo)
 require(lubridate)
 require(here)
+<<<<<<< HEAD:weather_app/data_processing.R
 ?openmeteo::climate_forecast()
+=======
+>>>>>>> d8e02ae38687c5c989e8b38d02fb7f60619d8054:data_processing.R
 
 #get the current date
 date<-Sys.Date()
@@ -38,15 +41,24 @@ response_units = list(
   )
 )
 
-historical_dw<-openmeteo::weather_history(location = c(28.3772, -81.5707),
+historical_dw_hourly<-openmeteo::weather_history(location = c(28.3772, -81.5707),
 start = lastdate,
 end = lastdate,
 hourly =  c("temperature_2m", "precipitation"),
-daily = c("temperature_2m_max", "precipitation_sum"),
 response_units = list(
   temperature_unit = c("fahrenheit"),
   precipitation_unit = "inch"
   )
 )
 
-saveRDS(historical_dw, file =here("data","historicaldw",paste0("historical_dw",date,".rds")))
+
+historical_dw_daily<-openmeteo::weather_history(location = c(28.3772, -81.5707),
+                                          start = lastdate,
+                                          end = lastdate,
+                                          daily = c("temperature_2m_max", "precipitation_sum"),
+                                          response_units = list(
+                                            temperature_unit = c("fahrenheit"),
+                                            precipitation_unit = "inch"
+                                          )
+)
+saveRDS(historical_dw, file =here("weather_app","data","historicaldw",paste0("historical_dw",date,".rds")))
