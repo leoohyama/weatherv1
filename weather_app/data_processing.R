@@ -2,7 +2,7 @@
 require(openmeteo)
 require(lubridate)
 require(here)
-
+?openmeteo::climate_forecast()
 
 #get the current date
 date<-Sys.Date()
