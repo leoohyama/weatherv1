@@ -12,9 +12,9 @@ require(tidyr)
 
 #get a table of the locations and what they are called:
 
-locations<-c("Disney World, FL", "Honolulu, HI", "Gainesville, FL", "Tokyo, Japan")
-latitude<-c(28.3772,21.3099, 29.6520,35.6764)
-longitude<-c(-81.5707,-157.8581, -82.3250, 139.6500)
+locations<-c("Disney World, FL", "Apopka", "Sanford","Downtown Orlando", "Kissimmee", "Winter Park")
+latitude<-c(28.3772,28.8029, 28.6934,28.5475,28.2956, 28.5950)
+longitude<-c(-81.5707,-81.2695, -81.5322, -81.3791, -81.4039, -81.3509)
 
 table_locations = data.frame(locations = locations,
                              latitude = latitude,
@@ -36,8 +36,6 @@ historical_daily<-purrr::map2(table_locations$latitude, table_locations$longitud
                                            precipitation_unit = "mm"
                                          )))
 
-geocode("Sanford")
-geocode("Orlando")
 
 names(historical_daily)<-table_locations$locations
 
